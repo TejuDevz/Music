@@ -1,0 +1,32 @@
+body {
+  background-size: cover;
+}
+
+.header {
+  width: 100%;
+  margin: 0;
+  font-weight: bold;
+  color: white;
+}
+
+.header h2 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.note {
+  color: black;
+  margin: 0;
+}
+
+#song {
+  font-size: 20px !important;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+canvas {
+  border: 5px solid white;
+  box-shadow: 5px 5px 5px lightcyan;
+}
