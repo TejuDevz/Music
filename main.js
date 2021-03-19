@@ -5,7 +5,9 @@ leftWristY = 0;
 rightWristX = 0;
 rightWristY = 0;
 scoreLeft = 0;
+scoreRight = 0;
 leftSongStatus = "";
+rightSongStatus = "";
 
 function preload() {
   song = loadSound("music.mp3");
@@ -26,6 +28,7 @@ function setup() {
 function gotPoses(results) {
   if (results.length > 0) {
     scoreLeft = results[0].pose.keypoints[9].score;
+    scoreRight = results[0].pose.keypoints[10].score;
     //console.log(scoreLeft);
     leftWristX = results[0].pose.leftWrist.x;
     leftWristY = results[0].pose.leftWrist.y;
@@ -57,6 +60,17 @@ function draw() {
     if (leftSongStatus === false) {
       song.play();
       document.getElementById("song").innerHTML = "Harry Potter";
+    }
+  }
+  rightSongStatus = song1.isPlaying();
+  fill("red");
+  stroke("red");
+  if (scoreRight > 0.2) {
+    circle(rightWristX, rightWristY, 20);
+    song.stop();
+    if (rightSongStatus === false) {
+      song1.play();
+      document.getElementById("song").innerHTML = "Peter Pan";
     }
   }
 }
